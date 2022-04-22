@@ -3,7 +3,7 @@ const defaultState = {
 };
 
 // action = { type: '', payload: '' }
-const customerReducer = (state = defaultState, action) => {
+export const customerReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_CUSTOMER':
       return { ...state, cash: state.cash + action.payload };
