@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const dispatch = useDispatch();
   const cash = useSelector(state => state.cash.cash);
+  const customers = useSelector(state => state.customers.customers);
   console.log(cash);
 
   const addCash = cash => {
@@ -14,6 +15,18 @@ function App() {
     dispatch({ type: 'GET_CASH', payload: cash });
   };
 
+  const addCustomer = name => {
+    const customer = {
+      name,
+      id: Date.now(),
+    };
+    dispatch({ type: 'ADD_CUSTOMER', payload: customer });
+  };
+
+  const removeCustomer = id => {
+    dispatch({ type: 'REMOVE_CUSTOMER', payload: id });
+  };
+
   return (
     <div className='App'>
       <header className='App-header'>
@@ -21,7 +34,23 @@ function App() {
         <div>
           <button onClick={() => getCash(Number(prompt()))}>Get Cash</button>
           <button onClick={() => addCash(Number(prompt()))}>Add Cash</button>
+          <br />
+          <button onClick={() => addCustomer(prompt())}>Add Customer</button>
+          <button onClick={() => addCash(Number(prompt()))}>
+            Delete Customer
+          </button>
         </div>
+        {customers.length > 0 ? (
+          <div>
+            {customers.map(customer => (
+              <p key={customer.id} onClick={() => removeCustomer(customer.id)}>
+                {customer.name}
+              </p>
+            ))}
+          </div>
+        ) : (
+          <h4>No Customers</h4>
+        )}
       </header>
     </div>
   );
