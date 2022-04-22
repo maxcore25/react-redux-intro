@@ -10,7 +10,7 @@ const defaultState = {
 };
 
 // action = { type: '', payload: '' }
-const reducer = (state = defaultState, action) => {
+const cashReducer = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_CASH':
       return { ...state, cash: state.cash + action.payload };
@@ -21,7 +21,7 @@ const reducer = (state = defaultState, action) => {
   }
 };
 
-const store = createStore(reducer);
+const store = createStore(cashReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
