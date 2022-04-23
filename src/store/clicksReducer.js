@@ -1,5 +1,6 @@
 const defaultState = {
   clicks: 0,
+  views: 0,
 };
 
 const ADD_CLICKS = 'ADD_CLICKS';
@@ -8,7 +9,7 @@ const ADD_CLICKS = 'ADD_CLICKS';
 export const clicksReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ADD_CLICKS:
-      return { ...state, cash: state.cash + action.payload };
+      return { ...state, clicks: state.clicks + action.payload };
     default:
       return state;
   }
