@@ -35,7 +35,8 @@ function App() {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h2>{cash}</h2>
+        <h2>CLicks: {cash}</h2>
+        <h2>Cash: {cash}</h2>
         <div>
           <button onClick={() => getCash(Number(prompt()))}>Get Cash</button>
           <button onClick={() => addCash(Number(prompt()))}>Add Cash</button>
